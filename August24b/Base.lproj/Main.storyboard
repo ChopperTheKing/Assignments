@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="August24b" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olP-z9-JJu">
+                                <rect key="frame" x="24" y="570" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="1">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c70-4k-ahM">
+                                <rect key="frame" x="113" y="570" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="2">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGR-je-vjh">
+                                <rect key="frame" x="204" y="570" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="3">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dws-cw-RC6">
+                                <rect key="frame" x="24" y="473" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="4">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rs4-gn-5mg">
+                                <rect key="frame" x="113" y="473" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="5">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaG-48-E45">
+                                <rect key="frame" x="294" y="473" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khq-JC-YEE">
+                                <rect key="frame" x="204" y="473" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="6">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMn-ED-l1H">
+                                <rect key="frame" x="24" y="376" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="7">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJv-Pb-2XZ">
+                                <rect key="frame" x="113" y="376" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="8">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e36-Lf-O3u">
+                                <rect key="frame" x="294" y="376" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="x">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVn-y3-Z0i">
+                                <rect key="frame" x="204" y="376" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="9">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abm-at-WL1">
+                                <rect key="frame" x="24" y="279" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="AC">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="un6-wt-Hla">
+                                <rect key="frame" x="113" y="279" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+/-">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-Qr-xfL">
+                                <rect key="frame" x="294" y="279" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="/">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzo-H4-eC5">
+                                <rect key="frame" x="204" y="279" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="%">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MR-Wf-IzW">
+                                <rect key="frame" x="24" y="669" width="164" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="0">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTF-7c-Y9t">
+                                <rect key="frame" x="294" y="669" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="=">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVg-vn-chq">
+                                <rect key="frame" x="204" y="669" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=".">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqT-R9-Awx">
+                                <rect key="frame" x="294" y="570" width="75" height="57"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-IF-5Iw">
+                                <rect key="frame" x="24" y="78" width="345" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <constraints>
+                            <constraint firstItem="Dws-cw-RC6" firstAttribute="height" secondItem="abm-at-WL1" secondAttribute="height" id="05I-ro-uRx"/>
+                            <constraint firstItem="ZVg-vn-chq" firstAttribute="height" secondItem="vzo-H4-eC5" secondAttribute="height" id="2aw-L7-HHR"/>
+                            <constraint firstItem="MVn-y3-Z0i" firstAttribute="height" secondItem="vzo-H4-eC5" secondAttribute="height" id="2sB-wm-Vnw"/>
+                            <constraint firstItem="olP-z9-JJu" firstAttribute="height" secondItem="abm-at-WL1" secondAttribute="height" id="3S6-vW-d7D"/>
+                            <constraint firstItem="vzo-H4-eC5" firstAttribute="width" secondItem="abm-at-WL1" secondAttribute="width" id="7R1-LJ-oSQ"/>
+                            <constraint firstItem="yaG-48-E45" firstAttribute="width" secondItem="Dws-cw-RC6" secondAttribute="width" id="9M5-8G-YCs"/>
+                            <constraint firstItem="7MR-Wf-IzW" firstAttribute="height" secondItem="un6-wt-Hla" secondAttribute="height" id="9Sl-xO-SSe"/>
+                            <constraint firstItem="aTF-7c-Y9t" firstAttribute="height" secondItem="lnA-Qr-xfL" secondAttribute="height" id="CwF-4h-dIN"/>
+                            <constraint firstItem="e36-Lf-O3u" firstAttribute="height" secondItem="lnA-Qr-xfL" secondAttribute="height" id="ESf-QO-7wP"/>
+                            <constraint firstItem="c70-4k-ahM" firstAttribute="height" secondItem="un6-wt-Hla" secondAttribute="height" id="MJY-uH-BMf"/>
+                            <constraint firstItem="un6-wt-Hla" firstAttribute="width" secondItem="abm-at-WL1" secondAttribute="width" id="Pj1-rn-8PI"/>
+                            <constraint firstItem="FGR-je-vjh" firstAttribute="height" secondItem="vzo-H4-eC5" secondAttribute="height" id="RBF-pc-wi9"/>
+                            <constraint firstItem="Rs4-gn-5mg" firstAttribute="width" secondItem="Dws-cw-RC6" secondAttribute="width" id="YKG-5H-rwn"/>
+                            <constraint firstItem="khq-JC-YEE" firstAttribute="height" secondItem="vzo-H4-eC5" secondAttribute="height" id="Yqy-8J-puB"/>
+                            <constraint firstItem="yaG-48-E45" firstAttribute="height" secondItem="lnA-Qr-xfL" secondAttribute="height" id="c0A-m1-rcU"/>
+                            <constraint firstItem="PqT-R9-Awx" firstAttribute="width" secondItem="olP-z9-JJu" secondAttribute="width" id="f77-0F-l1r"/>
+                            <constraint firstItem="7MR-Wf-IzW" firstAttribute="height" secondItem="abm-at-WL1" secondAttribute="height" id="gYC-gK-wXq"/>
+                            <constraint firstItem="PqT-R9-Awx" firstAttribute="height" secondItem="lnA-Qr-xfL" secondAttribute="height" id="gge-gw-eoG"/>
+                            <constraint firstItem="uJv-Pb-2XZ" firstAttribute="height" secondItem="un6-wt-Hla" secondAttribute="height" id="h9g-13-DAG"/>
+                            <constraint firstItem="aTF-7c-Y9t" firstAttribute="width" secondItem="7MR-Wf-IzW" secondAttribute="width" id="hEl-7A-5aM"/>
+                            <constraint firstItem="c70-4k-ahM" firstAttribute="width" secondItem="olP-z9-JJu" secondAttribute="width" id="mFJ-QS-8cP"/>
+                            <constraint firstItem="PMn-ED-l1H" firstAttribute="height" secondItem="abm-at-WL1" secondAttribute="height" id="pfO-Ff-x6q"/>
+                            <constraint firstItem="lnA-Qr-xfL" firstAttribute="width" secondItem="abm-at-WL1" secondAttribute="width" id="s26-vX-Ai6"/>
+                            <constraint firstItem="ZVg-vn-chq" firstAttribute="width" secondItem="7MR-Wf-IzW" secondAttribute="width" id="seH-3I-wLA"/>
+                            <constraint firstItem="khq-JC-YEE" firstAttribute="width" secondItem="Dws-cw-RC6" secondAttribute="width" id="shG-wA-jxd"/>
+                            <constraint firstItem="Rs4-gn-5mg" firstAttribute="height" secondItem="un6-wt-Hla" secondAttribute="height" id="swT-oP-bo4"/>
+                            <constraint firstItem="FGR-je-vjh" firstAttribute="width" secondItem="olP-z9-JJu" secondAttribute="width" id="zpj-Cu-7An"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
