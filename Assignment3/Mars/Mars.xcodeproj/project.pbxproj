@@ -18,6 +18,7 @@
 		49760C282A9A8FDE0096FC89 /* MarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49760C272A9A8FDE0096FC89 /* MarsTests.swift */; };
 		49760C322A9A8FDE0096FC89 /* MarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49760C312A9A8FDE0096FC89 /* MarsUITests.swift */; };
 		49760C342A9A8FDE0096FC89 /* MarsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49760C332A9A8FDE0096FC89 /* MarsUITestsLaunchTests.swift */; };
+		49B2BC662A9B8CBB00BA7DA6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2BC652A9B8CBB00BA7DA6 /* Robot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		49760C2D2A9A8FDE0096FC89 /* MarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49760C312A9A8FDE0096FC89 /* MarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsUITests.swift; sourceTree = "<group>"; };
 		49760C332A9A8FDE0096FC89 /* MarsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		49B2BC652A9B8CBB00BA7DA6 /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				49760C1E2A9A8FDE0096FC89 /* Info.plist */,
 				49726BC32A9AD2E00040BF6B /* MyCollectionViewCell.swift */,
 				49726BC42A9AD2E00040BF6B /* MyCollectionViewCell.xib */,
+				49B2BC652A9B8CBB00BA7DA6 /* Robot.swift */,
 			);
 			path = Mars;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B2BC662A9B8CBB00BA7DA6 /* Robot.swift in Sources */,
 				49760C152A9A8FDD0096FC89 /* ViewController.swift in Sources */,
 				49760C112A9A8FDD0096FC89 /* AppDelegate.swift in Sources */,
 				49726BC52A9AD2E00040BF6B /* MyCollectionViewCell.swift in Sources */,

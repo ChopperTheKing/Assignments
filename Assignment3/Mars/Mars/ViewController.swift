@@ -23,6 +23,31 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
     }
 
+    func simulateMartianRobots(input: String, maxX: Int, maxY: Int, scentSet: inout Set<String>) -> String {
+        // Parse input and create robots
+        var robotInputs: [String] = input.components(separatedBy: "\n")
+        var robotResults: [String] = []
+        
+        // Process each robot's instructions
+        for robotInput in robotInputs {
+            let inputComponents = robotInput.split(separator: " ")
+            guard inputComponents.count >= 4,
+                  let x = Int(inputComponents[0]),
+                  let y = Int(inputComponents[1]),
+                  let orientation = inputComponents[2].first else {
+                // Invalid input, skip this robot
+                continue
+            }
+            
+            let instructions = String(inputComponents[3])
+            let robot = Robot(x: x, y: y, orientation: Orientation(rawValue: orientation) ?? <#default value#>)
+            robot.executeInstructions(instructions: instructions, maxX: maxX, maxY: maxY, scentSet: &scentSet)
+            
+            robotResults.append("\(robot.x) \(robot.y) \(robot.orientation)")
+        }
+        
+        return robotResults.joined(separator: "\n")
+    }
 
 }
 
@@ -54,5 +79,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 120)
     }
+   
     
 }
+
