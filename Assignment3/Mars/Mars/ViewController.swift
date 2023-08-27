@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 120, height: 120)
+        collectionView.collectionViewLayout = layout
         collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
         // Do any additional setup after loading the view.
         collectionView.delegate = self
@@ -45,4 +49,10 @@ extension ViewController: UICollectionViewDataSource {
     }
     
 }
-extension ViewController: UICollectionViewDelegateFlowLayout {}
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: 120)
+    }
+    
+}
