@@ -20,3 +20,10 @@ enum Orientation: Character {
     case west = "W"
 }
 
+enum Instruction: Character {
+    case left = "L"
+    case right = "R"
+    case forward = "F"
+}
+
+
