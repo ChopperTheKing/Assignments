@@ -108,13 +108,13 @@
 				49760C102A9A8FDD0096FC89 /* AppDelegate.swift */,
 				49760C122A9A8FDD0096FC89 /* SceneDelegate.swift */,
 				49760C142A9A8FDD0096FC89 /* ViewController.swift */,
+				49B2BC652A9B8CBB00BA7DA6 /* Robot.swift */,
 				49760C162A9A8FDD0096FC89 /* Main.storyboard */,
 				49760C192A9A8FDE0096FC89 /* Assets.xcassets */,
 				49760C1B2A9A8FDE0096FC89 /* LaunchScreen.storyboard */,
 				49760C1E2A9A8FDE0096FC89 /* Info.plist */,
 				49726BC32A9AD2E00040BF6B /* MyCollectionViewCell.swift */,
 				49726BC42A9AD2E00040BF6B /* MyCollectionViewCell.xib */,
-				49B2BC652A9B8CBB00BA7DA6 /* Robot.swift */,
 			);
 			path = Mars;
 			sourceTree = "<group>";

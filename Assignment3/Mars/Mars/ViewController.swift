@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
     
+    var robot: Robot = Robot(x: 3, y: 3, orientation: .north) // Initialize with initial values
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +42,7 @@ class ViewController: UIViewController {
             }
             
             let instructions = String(inputComponents[3])
-            let robot = Robot(x: x, y: y, orientation: Orientation(rawValue: orientation) ?? <#default value#>)
+            let robot = Robot(x: x, y: y, orientation: Orientation(rawValue: orientation) ?? .north)
             robot.executeInstructions(instructions: instructions, maxX: maxX, maxY: maxY, scentSet: &scentSet)
             
             robotResults.append("\(robot.x) \(robot.y) \(robot.orientation)")
@@ -67,11 +69,16 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
-        
-        cell.configure(with: UIImage(named: "image")!)
-        
+
+        if indexPath.section == robot.x && indexPath.item == robot.y {
+            cell.configure(with: UIImage(named: "image")!, isRobot: true)
+        } else {
+            cell.configure(with: UIImage(named: "image")!, isRobot: false)
+        }
+
         return cell
     }
+
     
 }
 extension ViewController: UICollectionViewDelegateFlowLayout {
