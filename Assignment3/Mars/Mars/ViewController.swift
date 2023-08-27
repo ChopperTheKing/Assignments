@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
     
-    var robot: Robot = Robot(x: 3, y: 3, orientation: .north) // Initialize with initial values
+    var robot: Robot = Robot(x: 1, y: 1, orientation: .east) // Initialize with initial values
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
     func simulateMartianRobots(input: String, maxX: Int, maxY: Int, scentSet: inout Set<String>) -> String {
         // Parse input and create robots
-        var robotInputs: [String] = input.components(separatedBy: "\n")
+        let robotInputs: [String] = input.components(separatedBy: "\n")
         var robotResults: [String] = []
         
         // Process each robot's instructions
@@ -68,25 +68,22 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCollectionViewCell", for: indexPath) as! MyCollectionViewCell
 
-        if indexPath.section == robot.x && indexPath.item == robot.y {
-            cell.configure(with: UIImage(named: "image")!, isRobot: true)
-        } else {
-            cell.configure(with: UIImage(named: "image")!, isRobot: false)
-        }
+        let isRobotCell = indexPath.section == robot.x && indexPath.item == robot.y
+        let image = isRobotCell ? UIImage(named: "robotImage")! : UIImage(named: "image")!
 
+        cell.configure(with: image, isRobot: isRobotCell)
+        
         return cell
     }
-
     
 }
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 120)
     }
-   
     
 }
 

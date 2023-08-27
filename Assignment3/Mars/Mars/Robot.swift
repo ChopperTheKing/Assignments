@@ -22,7 +22,7 @@ enum Instruction: Character {
 
 class Robot {
     var x: Int
-    var y: Int
+    var y: Int 
     var orientation: Orientation
     
     init(x: Int, y: Int, orientation: Orientation) {
@@ -100,18 +100,18 @@ class Robot {
     }
     
     func executeInstructions(instructions: String, maxX: Int, maxY: Int, scentSet: inout Set<String>) {
-            for instruction in instructions {
-                switch instruction {
-                case Instruction.left.rawValue:
-                    turnLeft()
-                case Instruction.right.rawValue:
-                    turnRight()
-                case Instruction.forward.rawValue:
-                    move(maxX: maxX, maxY: maxY, scentSet: &scentSet)
-                default:
-                    break
-                }
+        for instruction in instructions {
+            switch instruction {
+            case Instruction.left.rawValue:
+                turnLeft()
+            case Instruction.right.rawValue:
+                turnRight()
+            case Instruction.forward.rawValue:
+                move(maxX: maxX, maxY: maxY, scentSet: &scentSet)
+            default:
+                break
             }
         }
+    }
 }
 
