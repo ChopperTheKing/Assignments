@@ -26,14 +26,6 @@ if let input = readLine() {
     
     if coordinates.count == 2, let x = Int(coordinates[0]), let y = Int(coordinates[1]) {
         let world = World(x: x, y: y)
-        let worldSize: [World] = [world]
-        
-        // Now you have a worldSize array with the captured world coordinates
-        // You can use worldSize array for further processing
-        for world in worldSize {
-            print("World's x coordinate: \(world.x)")
-            print("World's y coordinate: \(world.y)")
-        }
     } else {
         print("Invalid input format")
     }
@@ -73,11 +65,15 @@ if let positionInput = readLine() {
     print("No input received")
 }
 
-var robot = RobotPosition(x: 0, y: 0, orientation: .north)
-//if let instructions = readLine() {
-    //robot.followInstructions(instructions, robot: &robot)
-robot.followInstructions(instructions)
-    //print("Robot's new position: x = \(robot.x), y = \(robot.y), orientation = \(robot.orientation.rawValue)")
+let robot = Robot(x: 2, y: 3, orientation: .east)
+
+print("Enter the robot's instructions:")
+if let instructions = readLine() {
+    robot.followInstructions(instructions)
+    print("Robot's final position: x = \(robot.x), y = \(robot.y), orientation = \(robot.orientation.rawValue)")
+} else {
+    print("No instructions received")
+}
 //} else {
 //    print("No instructions received")
 //}
