@@ -19,13 +19,18 @@ struct RobotPosition {
 }
 
 print("What is the coordinates in the world? (x y)", terminator: " ")
-//let worldCoordinates = readLine()
+let worldCoordinates = readLine()
 
 if let input = readLine() {
     let coordinates = input.split(separator: " ")
     
     if coordinates.count == 2, let x = Int(coordinates[0]), let y = Int(coordinates[1]) {
         let world = World(x: x, y: y)
+        let worldSize: [World] = [world]
+        for world in worldSize {
+            print("World's x coordinate: \(world.x)")
+            print("World's y coordinate: \(world.y)")
+        }
     } else {
         print("Invalid input format")
     }
@@ -35,6 +40,7 @@ if let input = readLine() {
 
 print("What is the coordinates and orientation for the robot? (x y Orientation)", terminator: " ")
 
+let positionInput = readLine()
 if let positionInput = readLine() {
     let positionComponents = positionInput.split(separator: " ")
     
@@ -49,7 +55,7 @@ if let positionInput = readLine() {
         print("Enter the robot's instructions:")
         if let instructions = readLine() {
             let robotInstructions: [String] = [instructions]
-            
+
             // Now you have a robotPosition and robotInstructions
             print("Robot's x coordinate: \(robotPosition.x)")
             print("Robot's y coordinate: \(robotPosition.y)")
@@ -65,7 +71,7 @@ if let positionInput = readLine() {
     print("No input received")
 }
 
-let robot = Robot(x: 2, y: 3, orientation: .east)
+let robot = Robot(x: 2, y: 3, orientation: .north)
 
 print("Enter the robot's instructions:")
 if let instructions = readLine() {
