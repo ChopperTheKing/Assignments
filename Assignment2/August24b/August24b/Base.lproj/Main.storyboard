@@ -84,6 +84,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="-">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="minusButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C40-7g-OTt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khq-JC-YEE">
                                 <rect key="frame" x="204" y="473" width="75" height="57"/>
@@ -129,6 +132,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="x">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="multiplyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FeZ-MG-81t"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVn-y3-Z0i">
                                 <rect key="frame" x="204" y="376" width="75" height="57"/>
@@ -150,6 +156,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="AC">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="ACButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8TV-wr-3XH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="un6-wt-Hla">
                                 <rect key="frame" x="113" y="279" width="75" height="57"/>
@@ -159,6 +168,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="+/-">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="plusOrMinusButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bMb-Dd-Btd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-Qr-xfL">
                                 <rect key="frame" x="294" y="279" width="75" height="57"/>
@@ -168,6 +180,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="/">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="divideButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bbF-xi-u6f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzo-H4-eC5">
                                 <rect key="frame" x="204" y="279" width="75" height="57"/>
@@ -177,6 +192,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="%">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="percentButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qOi-uU-Q7p"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MR-Wf-IzW">
                                 <rect key="frame" x="24" y="669" width="164" height="57"/>
@@ -198,6 +216,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="=">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="equalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ueA-nh-vJ9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVg-vn-chq">
                                 <rect key="frame" x="204" y="669" width="75" height="57"/>
@@ -234,13 +255,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="SsP-sz-k5c"/>
                     <connections>
+                        <outlet property="ACButton" destination="abm-at-WL1" id="s8o-Ss-yQC"/>
+                        <outlet property="divideButton" destination="lnA-Qr-xfL" id="6kO-xD-GJl"/>
                         <outlet property="eightButton" destination="uJv-Pb-2XZ" id="IVC-RY-IYe"/>
                         <outlet property="fiveButton" destination="Rs4-gn-5mg" id="cey-oe-DmT"/>
                         <outlet property="fourButton" destination="Dws-cw-RC6" id="z1n-eY-uDd"/>
+                        <outlet property="minusButton" destination="yaG-48-E45" id="8gW-Tp-TRi"/>
+                        <outlet property="multiplyButton" destination="e36-Lf-O3u" id="9uQ-Nf-nVW"/>
                         <outlet property="nineButton" destination="MVn-y3-Z0i" id="vqL-o2-bxH"/>
                         <outlet property="oneButton" destination="olP-z9-JJu" id="2j8-RA-O4U"/>
                         <outlet property="outputBox" destination="Pbd-IF-5Iw" id="zLB-JB-YIk"/>
+                        <outlet property="percentButton" destination="vzo-H4-eC5" id="us1-m3-jBa"/>
                         <outlet property="plusButton" destination="PqT-R9-Awx" id="xaC-sO-N40"/>
+                        <outlet property="plusOrMinusButton" destination="un6-wt-Hla" id="g5k-vi-FIR"/>
                         <outlet property="sevenButton" destination="PMn-ED-l1H" id="UsN-Es-7QS"/>
                         <outlet property="sixButton" destination="khq-JC-YEE" id="2LQ-Yv-DOP"/>
                         <outlet property="threeButton" destination="FGR-je-vjh" id="JAd-R5-9vy"/>
