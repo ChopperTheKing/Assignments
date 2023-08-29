@@ -103,12 +103,12 @@
 			children = (
 				497584EC2A97E61800C9067D /* AppDelegate.swift */,
 				497584EE2A97E61800C9067D /* SceneDelegate.swift */,
+				49D9B3E22A9D5BEC005184E9 /* HomeViewController.swift */,
 				497584F02A97E61800C9067D /* ViewController.swift */,
 				497584F22A97E61800C9067D /* Main.storyboard */,
 				497584F52A97E61A00C9067D /* Assets.xcassets */,
 				497584F72A97E61A00C9067D /* LaunchScreen.storyboard */,
 				497584FA2A97E61A00C9067D /* Info.plist */,
-				49D9B3E22A9D5BEC005184E9 /* HomeViewController.swift */,
 			);
 			path = August24b;
 			sourceTree = "<group>";
