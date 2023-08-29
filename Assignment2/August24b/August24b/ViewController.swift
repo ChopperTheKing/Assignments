@@ -44,38 +44,85 @@ class ViewController: UIViewController {
     @IBOutlet weak var percentButton: UIButton!
     @IBOutlet weak var equalButton: UIButton!
     
-    @IBAction func submitButton(_ sender: Any) {
-        
-    }
     @IBAction func zeroButton(_ sender: Any) {
-        outputBox.text = "0"
+        if isFinishedTyping {
+            outputBox.text = "0"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "0"
+        }
     }
     @IBAction func oneButton(_ sender: Any) {
-        outputBox.text = "1"
+        if isFinishedTyping {
+            outputBox.text = "1"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "1"
+        }
     }
     @IBAction func twoButton(_ sender: Any) {
-        outputBox.text = "2"
+        if isFinishedTyping {
+            outputBox.text = "2"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "2"
+        }
     }
     @IBAction func threeButton(_ sender: Any) {
-        outputBox.text = "3"
+        if isFinishedTyping {
+            outputBox.text = "3"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "3"
+        }
     }
     @IBAction func fourButton(_ sender: Any) {
-        outputBox.text = "4"
+        if isFinishedTyping {
+            outputBox.text = "4"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "4"
+        }
     }
     @IBAction func fiveButton(_ sender: Any) {
-        outputBox.text = "5"
+        if isFinishedTyping {
+            outputBox.text = "5"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "5"
+        }
     }
     @IBAction func sixButton(_ sender: Any) {
-        outputBox.text = "6"
+        if isFinishedTyping {
+            outputBox.text = "6"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "6"
+        }
     }
     @IBAction func sevenButton(_ sender: Any) {
-        outputBox.text = "7"
+        if isFinishedTyping {
+            outputBox.text = "7"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "7"
+        }
     }
     @IBAction func eightButton(_ sender: Any) {
-        outputBox.text = "8"
+        if isFinishedTyping {
+            outputBox.text = "8"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "8"
+        }
     }
     @IBAction func nineButton(_ sender: Any) {
-        outputBox.text = "9"
+        if isFinishedTyping {
+            outputBox.text = "0"
+            isFinishedTyping = false
+        } else {
+            outputBox.text = outputBox.text! + "9"
+        }
     }
     @IBAction func plusButton(_ sender: Any) {
         firstOperand = displayValue
@@ -96,6 +143,9 @@ class ViewController: UIViewController {
         firstOperand = displayValue
         operatorSymbol = "/"
         isFinishedTyping = true
+    }
+    @IBAction func percentButton(_ sender: Any) {
+        displayValue = displayValue / 100
     }
     @IBAction func equalButton(_ sender: Any) {
         if let firstOperand = firstOperand, let operatorSymbol = operatorSymbol {
@@ -140,6 +190,19 @@ class ViewController: UIViewController {
           self.present(alert, animated: true)
       }
 
-
+    @IBAction func numButtonPressed(_ sender: UIButton) {
+        if let numValue = sender.currentTitle {
+            if isFinishedTyping {
+                outputBox.text = numValue
+                isFinishedTyping = false
+            } else {
+                if numValue == "." && (outputBox.text?.contains(".") ?? false) {
+                    return
+                }
+                outputBox.text = outputBox.text! + numValue
+            }
+        }
+    }
+    
 }
 
