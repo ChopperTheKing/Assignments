@@ -1,160 +1,100 @@
-//
-//  main.swift
-//  Mars3
-//
-//  Created by Ronnie Kissos on 8/27/23.
-//
-
 import Foundation
 
-enum Orientation: Character {
-    case north = "N", east = "E", south = "S", west = "W"
+enum Direction: String {
+    case N, S, E, W
 }
 
-struct Robot {
+struct Position {
     var x: Int
     var y: Int
-    var orientation: Orientation
 }
 
-struct Coordinate: Hashable {
-    let x: Int
-    let y: Int
+func move(_ position: inout Position, direction: Direction, maxX: Int, maxY: Int, lostPositions: inout Set<String>) -> Bool {
+    let originalPosition = position
+    switch direction {
+    case .N:
+        position.y += 1
+    case .S:
+        position.y -= 1
+    case .E:
+        position.x += 1
+    case .W:
+        position.x -= 1
+    }
+    
+    if position.x < 0 || position.y < 0 || position.x > maxX || position.y > maxY {
+        if !lostPositions.contains("\(originalPosition.x)\(originalPosition.y)") {
+            lostPositions.insert("\(originalPosition.x)\(originalPosition.y)")
+            position = originalPosition
+            return true
+        } else {
+            position = originalPosition
+        }
+    }
+    return false
+}
 
-    init(x: Int, y: Int) {
-        self.x = x
-        self.y = y
+func turn(_ direction: inout Direction, instruction: Character) {
+    let directions: [Direction] = [.N, .E, .S, .W]
+    if let index = directions.firstIndex(of: direction) {
+        if instruction == "L" {
+            direction = directions[(index - 1 + 4) % 4]
+        } else {
+            direction = directions[(index + 1) % 4]
+        }
     }
 }
 
-func moveForward(_ robot: inout Robot) {
-    switch robot.orientation {
-    case .north:
-        robot.y += 1
-    case .east:
-        robot.x += 1
-    case .south:
-        robot.y -= 1
-    case .west:
-        robot.x -= 1
+func main() {
+    print("Enter the upper-right coordinates of the rectangular world (e.g., 5 3):")
+    guard let dimensionsInput = readLine(),
+          let maxX = Int(dimensionsInput.split(separator: " ")[0]),
+          let maxY = Int(dimensionsInput.split(separator: " ")[1]) else {
+        print("Invalid input for dimensions.")
+        return
     }
-}
 
-func rotateRight(_ orientation: Orientation) -> Orientation {
-    switch orientation {
-    case .north:
-        return .east
-    case .east:
-        return .south
-    case .south:
-        return .west
-    case .west:
-        return .north
-    }
-}
+    var lostPositions: Set<String> = []
 
-func rotateLeft(_ orientation: Orientation) -> Orientation {
-    switch orientation {
-    case .north:
-        return .west
-    case .east:
-        return .north
-    case .south:
-        return .east
-    case .west:
-        return .south
-    }
-}
+    while true {
+        print("Enter the initial coordinates and orientation of the robot (e.g., 1 1 E):")
+        guard let robotInput = readLine(),
+              let posX = Int(robotInput.split(separator: " ")[0]),
+              let posY = Int(robotInput.split(separator: " ")[1]),
+              let dir = Direction(rawValue: String(robotInput.split(separator: " ")[2])) else {
+            print("Invalid input for robot position or orientation.")
+            return
+        }
 
-func followInstructions(_ robot: inout Robot, instructions: String, scentSet: inout Set<Coordinate>, worldSize: (Int, Int)) {
-    for instruction in instructions {
-        switch instruction {
-        case "F":
-            let newX = robot.x
-            let newY = robot.y
-            moveForward(&robot)
-            
-            // Check if the move is valid within the world
-            if newX < 0 || newY < 0 || newX > worldSize.0 || newY > worldSize.1 {
-                let coordinate = Coordinate(x: robot.x, y: robot.y)
-                
-                if !scentSet.contains(coordinate) {
-                    scentSet.insert(coordinate)
-                    robot.x = newX
-                    robot.y = newY
-                    print("\(robot.x)\(robot.y)\(robot.orientation.rawValue)LOST")
-                    return
+        var position = Position(x: posX, y: posY)
+        var direction = dir
+
+        print("Enter a sequence of robot instructions (L, R, F):")
+        guard let instructions = readLine() else {
+            print("Invalid input for instructions.")
+            return
+        }
+
+        var isLost = false
+        for instruction in instructions {
+            if instruction == "F" {
+                isLost = move(&position, direction: direction, maxX: maxX, maxY: maxY, lostPositions: &lostPositions)
+                if isLost {
+                    break
                 }
+            } else {
+                turn(&direction, instruction: instruction)
             }
-        case "R":
-            robot.orientation = rotateRight(robot.orientation)
-        case "L":
-            robot.orientation = rotateLeft(robot.orientation)
-        default:
+        }
+
+        print("\(position.x) \(position.y) \(direction)\(isLost ? " LOST" : "")") // Modified line
+
+        print("Would you like to continue? (yes/no)")
+        if readLine()!.lowercased() == "no" {
             break
         }
     }
-    
-    print("\(robot.x)\(robot.y)\(robot.orientation.rawValue)")
 }
 
-// Read the world size
-if let worldInput = readLine(),
-   let worldSize = worldInput.first,
-   let width = Int(String(worldInput.prefix(1))),
-   let height = Int(String(worldInput.suffix(1))) {
-    
-    let world = (width, height)
-    
-    // Process robot positions and instructions
-    while let positionInput = readLine(),
-        let instructions = readLine() {
-        
-        let positionComponents = positionInput.split(separator: " ")
-        
-        if positionComponents.count == 3,
-            let x = Int(positionComponents[0]),
-            let y = Int(positionComponents[1]),
-            let orientationChar = positionComponents[2].first,
-            let orientation = Orientation(rawValue: orientationChar) {
-            
-            var robot = Robot(x: x, y: y, orientation: orientation)
-            var scentSet: Set<Coordinate> = []
-            
-            followInstructions(&robot, instructions: instructions, scentSet: &scentSet, worldSize: world)
-        }
-    }
-}
 
-// Read world size from user input
-print("Enter the size of the world (format: 'width height'):")
-if let worldInput = readLine(),
-    let width = Int(worldInput.components(separatedBy: " ")[0]),
-    let height = Int(worldInput.components(separatedBy: " ")[1]) {
-    
-    let worldSize = (width, height)
-    
-    // Read robot's initial position and orientation from user input
-    print("Enter the robot's initial position and orientation (format: 'x y Orientation'):")
-    if let positionInput = readLine(),
-        let orientationChar = positionInput.components(separatedBy: " ").last?.first,
-        let orientation = Orientation(rawValue: orientationChar),
-        let x = Int(positionInput.components(separatedBy: " ")[0]),
-        let y = Int(positionInput.components(separatedBy: " ")[1]) {
-        
-        var robot = Robot(x: x, y: y, orientation: orientation)
-        var scentSet: Set<Coordinate> = []
-        
-        // Read robot instructions from user input
-        print("Enter the robot's instructions:")
-        if let instructions = readLine() {
-            followInstructions(&robot, instructions: instructions, scentSet: &scentSet, worldSize: worldSize)
-        } else {
-            print("No instructions received")
-        }
-    } else {
-        print("Invalid robot position input")
-    }
-} else {
-    print("Invalid world size input")
-}
+main()
