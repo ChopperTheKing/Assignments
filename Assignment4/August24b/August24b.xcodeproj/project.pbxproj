@@ -16,7 +16,6 @@
 		497585042A97E61A00C9067D /* August24bTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497585032A97E61A00C9067D /* August24bTests.swift */; };
 		4975850E2A97E61A00C9067D /* August24bUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975850D2A97E61A00C9067D /* August24bUITests.swift */; };
 		497585102A97E61A00C9067D /* August24bUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975850F2A97E61A00C9067D /* August24bUITestsLaunchTests.swift */; };
-		49D9B3E32A9D5BEC005184E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D9B3E22A9D5BEC005184E9 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		497585092A97E61A00C9067D /* August24bUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = August24bUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4975850D2A97E61A00C9067D /* August24bUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = August24bUITests.swift; sourceTree = "<group>"; };
 		4975850F2A97E61A00C9067D /* August24bUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = August24bUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		49D9B3E22A9D5BEC005184E9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 			children = (
 				497584EC2A97E61800C9067D /* AppDelegate.swift */,
 				497584EE2A97E61800C9067D /* SceneDelegate.swift */,
-				49D9B3E22A9D5BEC005184E9 /* HomeViewController.swift */,
 				497584F02A97E61800C9067D /* ViewController.swift */,
 				497584F22A97E61800C9067D /* Main.storyboard */,
 				497584F52A97E61A00C9067D /* Assets.xcassets */,
@@ -264,7 +261,6 @@
 				497584F12A97E61800C9067D /* ViewController.swift in Sources */,
 				497584ED2A97E61800C9067D /* AppDelegate.swift in Sources */,
 				497584EF2A97E61800C9067D /* SceneDelegate.swift in Sources */,
-				49D9B3E32A9D5BEC005184E9 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,8 +45,8 @@ import UIKit
 
 // diff b/w Struct and classes
 
-// Struct: A struct is a value type. When a struct is assigned to a new variable or passed as a function parameter, a copy of the value is created. Each copy is independent of the others.
-// Class: A class is a reference type. When a class instance is assigned to a new variable or passed as a function parameter, it's passed as a reference to the same instance in memory. This means that changes made to one reference will be reflected in all references pointing to the same object.
+// Struct: A struct is a value type. When a struct is assigned to a new variable or passed as a function parameter, a copy of the value is created. Each copy is independent of the others. Structs do not support inheritance. They cannot inherit properties or behavior from other structs.
+// Class: A class is a reference type. When a class instance is assigned to a new variable or passed as a function parameter, it's passed as a reference to the same instance in memory. This means that changes made to one reference will be reflected in all references pointing to the same object. Classes support inheritance. They can inherit properties, methods, and initializers from a superclass.
 
 
 
