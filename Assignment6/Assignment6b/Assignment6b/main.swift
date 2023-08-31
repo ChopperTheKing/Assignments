@@ -24,6 +24,7 @@ class LimitedObject {
 }
 
 do {
+    
     let obj1 = try LimitedObject()
     let obj2 = try LimitedObject()
     let obj3 = try LimitedObject()
@@ -33,7 +34,7 @@ do {
     let obj4 = try LimitedObject()
     print("A fourth object was created")
 } catch ObjectCreationError.maxObjectsReached {
-    print("Error: Maximum number of objects reached")
+    print("Error: The maximum number of objects was reached")
 } catch {
-    print("An unknown error occurred")
+    print("Unknown error occurred")
 }
