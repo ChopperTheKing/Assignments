@@ -45,15 +45,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             imageView.image = UIImage(named: student.imageName)
         }
         return cell
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "yourCellIdentifier", for: indexPath)
-//
-//        // Assume "students" is your array of Student objects and "avatarImageView" is your IBOutlet
-//        let student = students[indexPath.row]
-//        cell.textLabel?.text = student.name
-//        cell.detailTextLabel?.text = student.email
-//        //cell.imageView?.image = student.avatar // or load it asynchronously if it's a URL
-//
-//        return cell
     }
 }
 
