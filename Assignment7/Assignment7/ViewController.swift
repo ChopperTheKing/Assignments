@@ -10,10 +10,6 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-
-    
-    @IBAction func button(_ sender: Any) {
-    }
     
     var sectionOneData: [Settings] = [
         Settings(name: "VoiceOver", imageName: "dot.arrowtriangles.up.right.down.left.circle", subtitle: "On", hasSwitch: true),
