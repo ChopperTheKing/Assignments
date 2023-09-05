@@ -7,7 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, NetworkManagerDelegate {
+    func didFetchCountries(_ countries: [Country]) {
+        self.countries = countries
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didFailWithError(_ error: Error) {
+        print("Failed to fetch countries: \(error)")
+    }
+    
    
     @IBOutlet weak var tableView: UITableView!
     
