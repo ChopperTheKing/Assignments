@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let rightLabel = UILabel()
         
-        rightLabel.text = "\(country.region), \(country.code)"
+        rightLabel.text = "\(country.currency.code), \(country.code)"
         
         rightLabel.font = UIFont.systemFont(ofSize: 12)
         rightLabel.sizeToFit()
