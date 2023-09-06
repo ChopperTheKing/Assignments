@@ -9,16 +9,16 @@ import Foundation
 
 class NetworkManager {
     
-    func getCountries(completionHandler: @escaping ([Country]?, Error?) -> Void) { //fetch countries from an API.
-        guard let url = URL(string: "https://gist.github.com/.../countries.json") else { //Makes sure the URL is valid; if not, returns out of function.
+    func getCountries(completionHandler: @escaping ([Country]?, Error?) -> Void) { //fetch countries from an API
+        guard let url = URL(string: "https://gist.githubusercontent.com/peymano-wmt/32dcb892b06648910ddd40406e37fdab/raw/db25946fd77c5873b0303b858e861ce724e0dcd0/countries.json") else { //Makes sure the URL is valid; if not, returns out of function
             return
         }
         
-        let request = URLRequest(url: url) //Creates a URL request object.
-        let urlSession = URLSession.shared //Creates a task to fetch data.
+        let request = URLRequest(url: url) //Creates a URL request object
+        let urlSession = URLSession.shared //Creates a task to fetch data
         let sessionTask = urlSession.dataTask(with: request) { data, response, error in
             
-            if let error = error { //Checks if any error occurred during the data fetching, and passes it to the completionHandler.
+            if let error = error { //Checks if any error occurred during the data fetching, and passes it to the completionHandler
                 completionHandler(nil, error)
                 return
             }
@@ -28,9 +28,9 @@ class NetworkManager {
                 return
             }
             
-            let jsonDecoder = JSONDecoder() //Initializes a JSON decoder.
+            let jsonDecoder = JSONDecoder() //Initializes a JSON decoder
             
-            do { //Tries to decode the data into an array of Country objects and passes it or the error to the completionHandler.
+            do { //Tries to decode the data into an array of Country objects and passes it or the error to the completionHandler
                 let countries = try jsonDecoder.decode([Country].self, from: data)
                 completionHandler(countries, nil)
             } catch let decodeError {
