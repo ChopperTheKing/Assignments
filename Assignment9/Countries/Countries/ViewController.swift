@@ -8,7 +8,7 @@
 // ViewController.swift
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, NetworkManagerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() { //Sets up initial state.
         super.viewDidLoad()
+        networkManager.delegate = self
         
         tableView.dataSource = self //Sets data source of table view to self.
         tableView.dataSource = self
@@ -44,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         return countries.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { //Sets up table view
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { //Sets up TV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
         
@@ -66,4 +67,18 @@ class ViewController: UIViewController, UITableViewDataSource {
 
         return cell
     }
+    
+    func didFetchCountries(_ countries: [Country]) {
+        self.countries = countries
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
+    func didFailWithError(_ error: Error) {
+        DispatchQueue.main.async {
+            self.showError(error: error)
+        }
+    }
+    
 }

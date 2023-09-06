@@ -9,6 +9,7 @@ import Foundation
 
 class NetworkManager {
     
+    weak var delegate: NetworkManagerDelegate?
     // Fetch countries from an API
     func getCountries(completionHandler: @escaping ([Country]?, Error?) -> Void) {
         
@@ -46,9 +47,21 @@ class NetworkManager {
             } catch let decodeError {
                 completionHandler(nil, decodeError)
             }
+            
+            do {
+                let countries = try jsonDecoder.decode([Country].self, from: data)
+                self.delegate?.didFetchCountries(countries)
+            } catch let decodeError {
+                self.delegate?.didFailWithError(decodeError)
+            }
+
         }
+        
+        
         
         // Start the task
         sessionTask.resume()
     }
+    
 }
+
