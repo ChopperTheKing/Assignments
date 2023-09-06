@@ -16,10 +16,10 @@
 		041190442AA761B000019EDD /* CountriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041190432AA761B000019EDD /* CountriesTests.swift */; };
 		0411904E2AA761B000019EDD /* CountriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411904D2AA761B000019EDD /* CountriesUITests.swift */; };
 		041190502AA761B000019EDD /* CountriesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411904F2AA761B000019EDD /* CountriesUITestsLaunchTests.swift */; };
-		0411905D2AA7622400019EDD /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411905C2AA7622400019EDD /* Country.swift */; };
 		0411905F2AA76DD100019EDD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411905E2AA76DD100019EDD /* NetworkManager.swift */; };
 		496699022AA7A0DD00A3F69B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496699012AA7A0DD00A3F69B /* NetworkService.swift */; };
 		496699042AA7A26F00A3F69B /* NetworkManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496699032AA7A26F00A3F69B /* NetworkManagerDelegate.swift */; };
+		497F6A3A2AA8B21100CC092C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F6A392AA8B21100CC092C /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +53,10 @@
 		041190492AA761B000019EDD /* CountriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411904D2AA761B000019EDD /* CountriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesUITests.swift; sourceTree = "<group>"; };
 		0411904F2AA761B000019EDD /* CountriesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0411905C2AA7622400019EDD /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		0411905E2AA76DD100019EDD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		496699012AA7A0DD00A3F69B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		496699032AA7A26F00A3F69B /* NetworkManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerDelegate.swift; sourceTree = "<group>"; };
+		497F6A392AA8B21100CC092C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,6 @@
 				0411902C2AA761AC00019EDD /* AppDelegate.swift */,
 				0411902E2AA761AC00019EDD /* SceneDelegate.swift */,
 				041190302AA761AC00019EDD /* ViewController.swift */,
-				0411905C2AA7622400019EDD /* Country.swift */,
 				0411905E2AA76DD100019EDD /* NetworkManager.swift */,
 				496699012AA7A0DD00A3F69B /* NetworkService.swift */,
 				041190322AA761AC00019EDD /* Main.storyboard */,
@@ -118,6 +117,7 @@
 				041190372AA761B000019EDD /* LaunchScreen.storyboard */,
 				0411903A2AA761B000019EDD /* Info.plist */,
 				496699032AA7A26F00A3F69B /* NetworkManagerDelegate.swift */,
+				497F6A392AA8B21100CC092C /* Models.swift */,
 			);
 			path = Countries;
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				496699042AA7A26F00A3F69B /* NetworkManagerDelegate.swift in Sources */,
-				0411905D2AA7622400019EDD /* Country.swift in Sources */,
 				041190312AA761AC00019EDD /* ViewController.swift in Sources */,
+				497F6A3A2AA8B21100CC092C /* Models.swift in Sources */,
 				0411905F2AA76DD100019EDD /* NetworkManager.swift in Sources */,
 				0411902D2AA761AC00019EDD /* AppDelegate.swift in Sources */,
 				496699022AA7A0DD00A3F69B /* NetworkService.swift in Sources */,

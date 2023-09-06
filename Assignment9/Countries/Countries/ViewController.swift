@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         tableView.dataSource = self //Sets data source of table view to self.
+        tableView.dataSource = self
         networkManager.getCountries { countries, error in //Calls getCountries method to fetch countries.
             if let countries = countries { //Checks if countries were fetched successfully and reloads table view.
                 self.countries = countries
@@ -44,12 +45,25 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { //Sets up table view
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.accessoryType = .disclosureIndicator
         
         let country = countries[indexPath.row]
-        cell.textLabel?.text = "\(country.name)"
-    
+        
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        
+        cell.textLabel?.text = country.name
+        cell.detailTextLabel?.text = "\(country.capital)"
+        
+        let rightLabel = UILabel()
+        
+        rightLabel.text = "\(country.currency.code), \(country.code)"
+        
+        rightLabel.font = UIFont.systemFont(ofSize: 12)
+        rightLabel.sizeToFit()
+        
+        cell.accessoryView = rightLabel
+
         return cell
     }
 }
