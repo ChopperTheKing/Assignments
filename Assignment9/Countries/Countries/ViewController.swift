@@ -5,35 +5,38 @@
 //  Created by MAC on 05/09/23.
 //
 
+// ViewController.swift
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, NetworkManagerDelegate {
-    func didFetchCountries(_ countries: [Country]) {
-        self.countries = countries
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
+class ViewController: UIViewController, UITableViewDataSource {
     
-    func didFailWithError(_ error: Error) {
-        print("Failed to fetch countries: \(error)")
-    }
-    
-   
     @IBOutlet weak var tableView: UITableView!
     
     private var countries: [Country] = []
-    private var networkService: NetworkService = NetworkManager()
+    private let networkManager = NetworkManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        networkService.getCountries { countries, error in
-            self.countries = countries ?? []
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        networkManager.getCountries { countries, error in
+            if let countries = countries {
+                self.countries = countries
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else if let error = error {
+                DispatchQueue.main.async {
+                    self.showError(error: error)
+                }
             }
         }
+    }
+    
+    func showError(error: Error) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,8 +51,5 @@ class ViewController: UIViewController, UITableViewDataSource, NetworkManagerDel
         cell.textLabel?.text = "\(country.name)"
     
         return cell
-        
-        
     }
 }
-
