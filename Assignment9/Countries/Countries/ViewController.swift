@@ -68,7 +68,7 @@ class ViewController: UIViewController, UITableViewDataSource, NetworkManagerDel
         return cell
     }
     
-    func didFetchCountries(_ countries: [Country]) {
+    func didFetchCountries(_ countries: [Country]) { //Make ViewController conform to NetworkManagerDelegate protocol
         self.countries = countries
         DispatchQueue.main.async {
             self.tableView.reloadData()

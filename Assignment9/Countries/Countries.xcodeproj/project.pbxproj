@@ -111,13 +111,13 @@
 				0411902E2AA761AC00019EDD /* SceneDelegate.swift */,
 				041190302AA761AC00019EDD /* ViewController.swift */,
 				0411905E2AA76DD100019EDD /* NetworkManager.swift */,
+				496699032AA7A26F00A3F69B /* NetworkManagerDelegate.swift */,
 				496699012AA7A0DD00A3F69B /* NetworkService.swift */,
+				497F6A392AA8B21100CC092C /* Models.swift */,
 				041190322AA761AC00019EDD /* Main.storyboard */,
 				041190352AA761B000019EDD /* Assets.xcassets */,
 				041190372AA761B000019EDD /* LaunchScreen.storyboard */,
 				0411903A2AA761B000019EDD /* Info.plist */,
-				496699032AA7A26F00A3F69B /* NetworkManagerDelegate.swift */,
-				497F6A392AA8B21100CC092C /* Models.swift */,
 			);
 			path = Countries;
 			sourceTree = "<group>";

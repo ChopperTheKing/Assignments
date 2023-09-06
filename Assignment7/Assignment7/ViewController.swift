@@ -11,7 +11,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableView: UITableView!
     
-    var sectionOneData: [Settings] = [
+    var sectionOneData: [Settings] = [ //serve as the data source for the table view sections
         Settings(name: "VoiceOver", imageName: "dot.arrowtriangles.up.right.down.left.circle", subtitle: "On", hasSwitch: true),
         Settings(name: "Zoom", imageName: "minus.magnifyingglass"),
         Settings(name: "Motion", imageName: "waveform"),
@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         Settings(name: "Audio Descriptions", imageName: "headphones")
     ]
     
-    var sectionTwoData: [Settings] = [
+    var sectionTwoData: [Settings] = [ //serve as the data source for the table view sections
         Settings(name: "Touch Accommodations", imageName: "hand.tap"),
         Settings(name: "Switch Control", imageName: "arrow.right.arrow.left"),
         Settings(name: "Voice Control", imageName: "mic.fill"),
@@ -32,20 +32,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         Settings(name: "Keyboards", imageName: "keyboard")
     ]
 
-    var sectionThreeData: [Settings] = [
+    var sectionThreeData: [Settings] = [ //serve as the data source for the table view sections
         Settings(name: "Guided Access", imageName: "lock.rectangle"),
         Settings(name: "Siri", imageName: "mic.fill"),
         Settings(name: "Accessibility Shortcut", imageName: "option"),
         Settings(name: "Per-App Settings", imageName: "apps.iphone")
     ]
 
-    override func viewDidLoad() {
+    override func viewDidLoad() { //the table view's delegate and data source are set to the view controller itself.
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { //specifies that there are three sections in the table view.
         switch section {
         case 0:
             return sectionOneData.count
@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { //defines how many rows each section has, based on the count of elements in the corresponding data array.
         let cell = tableView.dequeueReusableCell(withIdentifier: "Settings", for: indexPath)
         
         var currentSetting: Settings
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 3 // Update this to the number of sections you have
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { // provides header title for each section based on index.
         switch section {
         case 0:
             return "VISION"

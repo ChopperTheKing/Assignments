@@ -48,7 +48,7 @@ class NetworkManager {
                 completionHandler(nil, decodeError)
             }
             
-            do {
+            do { //Notify the delegate inside the getCountries function.
                 let countries = try jsonDecoder.decode([Country].self, from: data)
                 self.delegate?.didFetchCountries(countries)
             } catch let decodeError {
