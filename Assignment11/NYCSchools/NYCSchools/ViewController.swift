@@ -26,8 +26,13 @@ class ViewController: UIViewController {
            let destinationVC = segue.destination as? SATScoresViewController,
            let selectedIndex = tableView.indexPathForSelectedRow?.row {
             destinationVC.satScore = highSchools[selectedIndex].satScore
+            
+            // Print to verify
+            print("Passing SAT score data: \(String(describing: destinationVC.satScore))")
         }
     }
+
+
 
     func setupTableView() {
         tableView.delegate = self
@@ -74,9 +79,6 @@ class ViewController: UIViewController {
             }
         }
     }
-
-
-
 }
 
 extension ViewController: UITableViewDataSource {
