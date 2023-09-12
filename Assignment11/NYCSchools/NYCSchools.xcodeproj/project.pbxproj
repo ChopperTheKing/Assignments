@@ -19,6 +19,7 @@
 		49EDC2B72AAFE9F3006415EE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EDC2B62AAFE9F3006415EE /* DataModel.swift */; };
 		49EDC2B92AAFEA08006415EE /* DataSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EDC2B82AAFEA08006415EE /* DataSession.swift */; };
 		49EDC2BB2AAFF710006415EE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EDC2BA2AAFF710006415EE /* Service.swift */; };
+		49EDC2BD2AAFFF61006415EE /* SATScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EDC2BC2AAFFF61006415EE /* SATScoresViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		49EDC2B62AAFE9F3006415EE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		49EDC2B82AAFEA08006415EE /* DataSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSession.swift; sourceTree = "<group>"; };
 		49EDC2BA2AAFF710006415EE /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		49EDC2BC2AAFFF61006415EE /* SATScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATScoresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				49EDC2B62AAFE9F3006415EE /* DataModel.swift */,
 				49EDC2B82AAFEA08006415EE /* DataSession.swift */,
 				49EDC2BA2AAFF710006415EE /* Service.swift */,
+				49EDC2BC2AAFFF61006415EE /* SATScoresViewController.swift */,
 			);
 			path = NYCSchools;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				49EDC2872AAFE974006415EE /* AppDelegate.swift in Sources */,
 				49EDC2B92AAFEA08006415EE /* DataSession.swift in Sources */,
 				49EDC2892AAFE974006415EE /* SceneDelegate.swift in Sources */,
+				49EDC2BD2AAFFF61006415EE /* SATScoresViewController.swift in Sources */,
 				49EDC2BB2AAFF710006415EE /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
