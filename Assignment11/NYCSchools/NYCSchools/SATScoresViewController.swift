@@ -8,19 +8,17 @@
 import Foundation
 import UIKit
 
-class SATScoresViewController: UIViewController, UITableViewDataSource {
+class SATScoresViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
     var satScore: SATScore?
-
+    
     // An enum to represent the different SAT sections and retrieve the appropriate scores
     enum SATSection: Int, CaseIterable {
-        case reading
-        case math
-        case writing
+        case reading, math, writing
 
         var displayTitle: String {
             switch self {
@@ -32,12 +30,9 @@ class SATScoresViewController: UIViewController, UITableViewDataSource {
 
         func score(from satScore: SATScore?) -> String {
             switch self {
-            case .reading:
-                return satScore?.sat_critical_reading_avg_score ?? "N/A"
-            case .math:
-                return satScore?.sat_math_avg_score ?? "N/A"
-            case .writing:
-                return satScore?.sat_writing_avg_score ?? "N/A"
+            case .reading: return satScore?.sat_critical_reading_avg_score ?? "N/A"
+            case .math: return satScore?.sat_math_avg_score ?? "N/A"
+            case .writing: return satScore?.sat_writing_avg_score ?? "N/A"
             }
         }
     }
@@ -47,25 +42,31 @@ class SATScoresViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         setupTableView()
     }
-
+    
     // MARK: - Setup Methods
     private func setupTableView() {
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ScoreCell")
+        tableView.register(ScoreCell.self, forCellReuseIdentifier: "ScoreCell")
     }
+}
 
-    // MARK: - UITableViewDataSource Methods
+// MARK: - UITableViewDataSource
+extension SATScoresViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SATSection.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath) as! ScoreCell
+        
         if let section = SATSection(rawValue: indexPath.row) {
             cell.textLabel?.text = "\(section.displayTitle): \(section.score(from: satScore))"
         }
-        
+
         return cell
     }
+
+
+
 }
