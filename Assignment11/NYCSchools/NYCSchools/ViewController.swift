@@ -12,88 +12,67 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var highSchools: [HighSchool] = []
-    let service = Service()
-    
-
+    let dataSession = DataSession()
+    var selectedIndex = 0
+    var schooldbn = ""
+    var schoolname = " "
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        fetchDataAndMerge()
+        tableView.dataSource = self
+        tableView.delegate = self
+        Task{
+            await self.dataSession.fetchData(from:self.dataSession.highSchoolsURL)
+            print(dataSession.schools)
+            self.tableView.reloadData()
+        }
+        
     }
     
+ 
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showSATScores",
-           let destinationVC = segue.destination as? SATScoresViewController,
-           let selectedIndex = tableView.indexPathForSelectedRow?.row {
-            destinationVC.satScore = highSchools[selectedIndex].satScore
-            
-            // Print to verify
-            print("Passing SAT score data: \(String(describing: destinationVC.satScore))")
-        }
-    }
-
-
-
-    func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-
-    func fetchDataAndMerge() {
-        service.fetchHighSchools { [weak self] result in
-            switch result {
-            case .success(let schools):
-                self?.highSchools = schools
-
-                self?.service.fetchSATScores { result in
-                    switch result {
-                    case .success(let satScores):
-                        print("Successfully fetched \(satScores.count) SAT scores.") // Here's the print statement.
-                        self?.mergeSATScoresWithSchools(using: satScores)
-
-                        DispatchQueue.main.async {
-                            self?.tableView.reloadData()
-                        }
-                    case .failure(let error):
-                        DispatchQueue.main.async {
-                            // Handle the error (e.g., show an alert)
-                            print("Error fetching SAT scores: \(error.localizedDescription)")
-                        }
-                    }
-                }
-                
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    // Handle the error (e.g., show an alert)
-                    print("Error fetching high schools: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
-
-
-    func mergeSATScoresWithSchools(using satScores: [SATScore]) {
-        for (index, school) in self.highSchools.enumerated() {
-            if let matchingSAT = satScores.first(where: { $0.dbn == school.dbn }) {
-                self.highSchools[index].satScore = matchingSAT
-            }
+        if segue.identifier == "navigateToSat" {
+            let satViewController = segue.destination as!  SATScoresViewController
+            //satViewController.name.text = viewModel.schools[selectedIndex].schoolName
         }
     }
 }
 
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return highSchools.count
-    }
 
+
+extension ViewController:UITableViewDataSource,UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)  -> Int {
+        print(self.dataSession.schools.count)
+        
+        return dataSession.schools.count
+    
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HighSchoolCell", for: indexPath)
-        let school = highSchools[indexPath.row]
-        cell.textLabel?.text = school.school_name
+        guard let cell =  tableView.dequeueReusableCell(withIdentifier: "HighSchoolCell", for: indexPath) as? ScoreCell else{return UITableViewCell()}
+        
+        cell.title.text = self.dataSession.schools[indexPath.item].schoolName
+        //cell.location.text = viewModel.schools[indexPath.item].location
+        //cell.website.text =  viewModel.schools[indexPath.item].website
+        /*cell.didDelete = {
+            self.viewModel.schools.remove(at:indexPath.item)
+            var tempSchool = self.viewModel.schools
+            self.viewModel.schools = tempSchool
+            self.tableView.reloadData()
+        }*/
         return cell
     }
-}
-
-extension ViewController: UITableViewDelegate {
-    // Add delegate methods if required
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        self.schooldbn = dataSession.schools[selectedIndex].dbn ?? ""
+        self.schoolname = dataSession.schools[selectedIndex].schoolName ?? ""
+        if let viewController = storyboard?.instantiateViewController(identifier: "satViewController") as? SATScoresViewController {
+            viewController.namePlaceHolder = self.schoolname
+            viewController.dbnPlaceHolder = self.schooldbn
+                
+            navigationController?.pushViewController(viewController, animated: true)
+            }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

@@ -8,70 +8,52 @@
 import Foundation
 
 class DataSession {
-    
+    var schools = [HighSchool]()
+    var satScores = [SATScore]()
     private enum DataSessionError: Error {
         case invalidURL
         case noDataReceived
     }
     
-    private let highSchoolsURL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
-    private let satScoresURL = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
+     let highSchoolsURL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
+    let satScoresURL = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
     
-    private func fetchData<T: Decodable>(from urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(.failure(DataSessionError.invalidURL))
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    completion(.failure(error))
-                    return
-                }
-                
-                guard let data = data else {
-                    completion(.failure(DataSessionError.noDataReceived))
-                    return
-                }
-                
-                do {
-                    let decodedObject = try JSONDecoder().decode(T.self, from: data)
-                    completion(.success(decodedObject))
-                } catch let decodeError {
-                    completion(.failure(decodeError))
-                }
+    func fetchData(from urlString: String) async {
+        guard let _url = URL(string: highSchoolsURL) else{ return }
+      
+            do{
+                self.schools = try await NetworkManager.requstURL (url: _url, responseType: highSchools.self)
+                print(self.schools)
+            }catch {
+                print(error.localizedDescription)
             }
-        }.resume()
     }
     
-    func fetchHighSchoolData(completion: @escaping (Result<[(name: String, score: SATScore?)], Error>) -> Void) {
-        fetchHighSchools { schoolsResult in
-            switch schoolsResult {
-            case .success(let schools):
-                self.fetchSATScores { scoresResult in
-                    switch scoresResult {
-                    case .success(let scores):
-                        let combinedData = schools.map { school -> (name: String, score: SATScore?) in
-                            let matchingScore = scores.first(where: { $0.dbn == school.dbn })
-                            return (school.school_name, matchingScore)
-                        }
-                        completion(.success(combinedData))
-                    case .failure(let error):
-                        completion(.failure(error))
-                    }
-                }
-            case .failure(let error):
-                completion(.failure(error))
+    func fetchHighSchoolData(url:String)  async{
+        guard let _url = URL(string: satScoresURL) else{ return }
+      
+            do{
+                self.satScores = try await NetworkManager.requstURL (url: _url, responseType: [SATScore].self)
+            }catch {
+                print(error.localizedDescription)
             }
-        }
     }
     
-    private func fetchHighSchools(completion: @escaping (Result<[HighSchool], Error>) -> Void) {
-        fetchData(from: highSchoolsURL, completion: completion)
+    func getOneSchoolSat(dbn:String)->SATScore?{
+        return self.satScores.first(where: { ($0.dbn ?? " ") == dbn  })
     }
-    
-    private func fetchSATScores(completion: @escaping (Result<[SATScore], Error>) -> Void) {
-        fetchData(from: satScoresURL, completion: completion)
+
+}
+
+typealias highSchools = [HighSchool]
+typealias satScores  = [SATScore]
+class NetworkManager{
+    static func requstURL<ResponseType:Decodable>(url: URL,responseType:ResponseType.Type) async throws -> ResponseType {
+        let session = URLSession.shared
+        let request = URLRequest(url:url)
+        let (data,response) = try await session.data(for: request)
+        let jsonDecoder = JSONDecoder()
+        let result = try jsonDecoder.decode(ResponseType.self, from: data)
+        return result
     }
 }

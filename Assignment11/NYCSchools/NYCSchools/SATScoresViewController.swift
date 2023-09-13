@@ -10,63 +10,50 @@ import UIKit
 
 class SATScoresViewController: UIViewController {
     
+    @IBOutlet weak var Reading: UILabel!
+    //@IBOutlet weak var Reading: UILabel!
+    @IBOutlet weak var Writing: UILabel!
     // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var Math: UILabel!
+    @IBOutlet weak var criticalAveScore: UILabel!
+
+    
+    var dbnPlaceHolder = ""
+    var namePlaceHolder = ""
+   var dataSession = DataSession()
     
     // MARK: - Properties
     var satScore: SATScore?
+     
+  //  var service = fetchHighSchools()
     
     // An enum to represent the different SAT sections and retrieve the appropriate scores
-    enum SATSection: Int, CaseIterable {
-        case reading, math, writing
-
-        var displayTitle: String {
-            switch self {
-            case .reading: return "Reading Score"
-            case .math: return "Math Score"
-            case .writing: return "Writing Score"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        Task{
+            
+            await dataSession.fetchHighSchoolData(url: dataSession.highSchoolsURL)
+            let sat =   await dataSession.getOneSchoolSat(dbn:self.dbnPlaceHolder)
+            DispatchQueue.main.async {
+                self.Math.text = sat?.satMathAvgScore
+                self.Reading.text = sat?.satCriticalReadingAvgScore
+                self.Writing.text = sat?.satWritingAvgScore
+                self.criticalAveScore.text = sat?.satCriticalReadingAvgScore
             }
-        }
-
-        func score(from satScore: SATScore?) -> String {
-            switch self {
-            case .reading: return satScore?.sat_critical_reading_avg_score ?? "N/A"
-            case .math: return satScore?.sat_math_avg_score ?? "N/A"
-            case .writing: return satScore?.sat_writing_avg_score ?? "N/A"
-            }
+            
         }
     }
     
     // MARK: - Lifecycle Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupTableView()
-    }
     
-    // MARK: - Setup Methods
-    private func setupTableView() {
-        tableView.dataSource = self
-        tableView.register(ScoreCell.self, forCellReuseIdentifier: "ScoreCell")
-    }
+//
+//    // MARK: - Setup Methods
+//    private func setupTableView() {
+//        tableView.dataSource = self
+//        tableView.register(ScoreCell.self, forCellReuseIdentifier: "ScoreCell")
+//    }
 }
 
 // MARK: - UITableViewDataSource
-extension SATScoresViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SATSection.allCases.count
-    }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath) as! ScoreCell
-        
-        if let section = SATSection(rawValue: indexPath.row) {
-            cell.textLabel?.text = "\(section.displayTitle): \(section.score(from: satScore))"
-        }
-
-        return cell
-    }
-
-
-
-}
