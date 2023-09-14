@@ -8,29 +8,40 @@
 import XCTest
 @testable import NYCSchools
 
-final class NYCSchoolsTests: XCTestCase {
+class SATScoresViewControllerTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var sut: SATScoresViewController!
+    
+    override func setUp() {
+        super.setUp()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        sut = storyboard.instantiateViewController(withIdentifier: "satViewController") as? SATScoresViewController
+        sut.loadViewIfNeeded()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testFetchingSATData() {
+        // Given
+        sut.dbnPlaceHolder = "01M292"
+        
+        // When
+        sut.viewDidLoad()
+        
+        // Wait for a while if needed, since the fetching is asynchronous
+        let expectation = self.expectation(description: "FetchingData")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            expectation.fulfill()
         }
+        waitForExpectations(timeout: 6.0, handler: nil)
+        
+        // Then
+        XCTAssertNotNil(sut.Math.text, "404")
+        XCTAssertNotNil(sut.Reading.text, "355")
+        XCTAssertNotNil(sut.Writing.text, "363")
+        //XCTAssertNotNil(sut.criticalAveScore.text, "criticalAveScore label should have a value")
     }
-
 }

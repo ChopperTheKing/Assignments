@@ -8,9 +8,10 @@
 import Foundation
 
 
-
+// Defines a struct for representing High Schools
 struct HighSchool: Decodable {
 
+// Properties of the HighSchool struct with default values set to nil
   var dbn                            : String? = nil
   var schoolName                     : String? = nil
   var boro                           : String? = nil
@@ -74,6 +75,7 @@ struct HighSchool: Decodable {
   var nta                            : String? = nil
   var borough                        : String? = nil
 
+    // An enumeration that assists in the decoding of JSON keys into the appropriate struct properties
   enum CodingKeys: String, CodingKey {
 
     case dbn                            = "dbn"
@@ -141,6 +143,7 @@ struct HighSchool: Decodable {
   
   }
 
+    // Initializer that takes a `Decoder` and decodes the respective JSON keys to the struct's properties
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -208,7 +211,7 @@ struct HighSchool: Decodable {
     borough                        = try values.decodeIfPresent(String.self , forKey: .borough                        )
  
   }
-
+    // A default initializer for the struct
   init() {
 
   }
@@ -216,41 +219,49 @@ struct HighSchool: Decodable {
 }
 
 
-struct SATScore: Decodable {
+// Defines a struct to represent SAT scores of a school
+struct SATScore: Decodable { // Conforms to the Decodable protocol for easy decoding from JSON or similar data sources.
 
-  var dbn                        : String? = nil
-  var schoolName                 : String? = nil
-  var numOfSatTestTakers         : String? = nil
-  var satCriticalReadingAvgScore : String? = nil
-  var satMathAvgScore            : String? = nil
-  var satWritingAvgScore         : String? = nil
+  // MARK: - Properties
 
+  // Identifier for the school, usually a unique value
+  var dbn: String? = nil
+  var schoolName: String? = nil
+  var numOfSatTestTakers: String? = nil
+  var satCriticalReadingAvgScore: String? = nil
+  var satMathAvgScore: String? = nil
+  var satWritingAvgScore: String? = nil
+
+  // Enum defining the coding keys used during decoding.
+  // This allows for mapping between the variable names in the struct and the keys in the encoded data.
   enum CodingKeys: String, CodingKey {
 
-    case dbn                        = "dbn"
-    case schoolName                 = "school_name"
-    case numOfSatTestTakers         = "num_of_sat_test_takers"
+    // Mapping each property to its respective key in the encoded data
+    case dbn = "dbn"
+    case schoolName = "school_name"
+    case numOfSatTestTakers = "num_of_sat_test_takers"
     case satCriticalReadingAvgScore = "sat_critical_reading_avg_score"
-    case satMathAvgScore            = "sat_math_avg_score"
-    case satWritingAvgScore         = "sat_writing_avg_score"
+    case satMathAvgScore = "sat_math_avg_score"
+    case satWritingAvgScore = "sat_writing_avg_score"
   
   }
 
+  // Custom initializer that takes a decoder to initialize properties from the decoded data
   init(from decoder: Decoder) throws {
+
+    // Create a decoding container using the defined coding keys
     let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    dbn                        = try values.decodeIfPresent(String.self , forKey: .dbn                        )
-    schoolName                 = try values.decodeIfPresent(String.self , forKey: .schoolName                 )
-    numOfSatTestTakers         = try values.decodeIfPresent(String.self , forKey: .numOfSatTestTakers         )
-    satCriticalReadingAvgScore = try values.decodeIfPresent(String.self , forKey: .satCriticalReadingAvgScore )
-    satMathAvgScore            = try values.decodeIfPresent(String.self , forKey: .satMathAvgScore            )
-    satWritingAvgScore         = try values.decodeIfPresent(String.self , forKey: .satWritingAvgScore         )
- 
+    // Decode each property from the container if present
+    dbn = try values.decodeIfPresent(String.self, forKey: .dbn)
+    schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName)
+    numOfSatTestTakers = try values.decodeIfPresent(String.self, forKey: .numOfSatTestTakers)
+    satCriticalReadingAvgScore = try values.decodeIfPresent(String.self, forKey: .satCriticalReadingAvgScore)
+    satMathAvgScore = try values.decodeIfPresent(String.self, forKey: .satMathAvgScore)
+    satWritingAvgScore = try values.decodeIfPresent(String.self, forKey: .satWritingAvgScore)
   }
 
+  // Default initializer
   init() {
-
   }
-
 }
-
