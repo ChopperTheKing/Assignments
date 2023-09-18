@@ -68,17 +68,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         // Set the school's name for the cell.
         cell.title.text = self.dataSession.schools[indexPath.item].schoolName
         
-        // cell.location.text = viewModel.schools[indexPath.item].location
-        // cell.website.text = viewModel.schools[indexPath.item].website
-        
-        // A commented callback for deleting a school item from the list.
-        /*cell.didDelete = {
-            self.viewModel.schools.remove(at:indexPath.item)
-            var tempSchool = self.viewModel.schools
-            self.viewModel.schools = tempSchool
-            self.tableView.reloadData()
-        }*/
-        
         return cell
     }
     

@@ -48,8 +48,4 @@ class SATScoresViewController: UIViewController {
             }
         }
     }
-    // private func setupTableView() {
-    //     tableView.dataSource = self
-    //     tableView.register(ScoreCell.self, forCellReuseIdentifier: "ScoreCell")
-    // }
 }

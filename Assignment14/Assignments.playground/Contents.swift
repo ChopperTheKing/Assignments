@@ -19,18 +19,19 @@ import UIKit
 
 // do this using higher order function
 
-
+// This declares a function named fibonacci that accepts an integer num and returns an integer.
 func fibonacci(of num: Int) -> Int {
+    // For values of num that are 0 or 1, the function returns the input value itself. This is because the Fibonacci numbers for 0 and 1 are 0 and 1, respectively.
     if num <= 1 { return num }
     
-    var twoPrevious = 0
-    var previous = 1
-    var current = 1
+    var twoPrevious = 0 // This variable represents the Fibonacci number two places before the current one. Initialized to 0 (the 0th Fibonacci number).
+    var previous = 1 // This variable represents the Fibonacci number one place before the current one. Initialized to 1 (the 1st Fibonacci number).
+    var current = 1 //This variable represents the current Fibonacci number. Initialized to 1 (as a starting value, though it will quickly get updated in the loop).
     
-    for _ in 2..<num {
-        twoPrevious = previous
-        previous = current
-        current = twoPrevious + previous
+    for _ in 2..<num { // This loop runs from 2 up to (but not including) num. The loop does not use the loop variable (hence the use of _), it just runs the body of the loop num - 2 times.
+        twoPrevious = previous // The value of previous is moved to twoPrevious.
+        previous = current // The value of current is moved to previous.
+        current = twoPrevious + previous // The next Fibonacci number is calculated by summing the two previous Fibonacci numbers.
     }
     
     return current
