@@ -43,7 +43,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="title" destination="IVL-je-Uz4" id="1QO-1i-ARM"/>
-                                            <segue destination="qc2-MV-2wd" kind="show" identifier="navigateToSat" id="YiC-F1-hcZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

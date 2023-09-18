@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4965811D2AB66F66000BBBD9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965811C2AB66F66000BBBD9 /* Protocols.swift */; };
-		4965811F2AB6702B000BBBD9 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965811E2AB6702B000BBBD9 /* Endpoints.swift */; };
+		496581252AB75181000BBBD9 /* DataFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496581242AB75181000BBBD9 /* DataFetching.swift */; };
 		49EDC2872AAFE974006415EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EDC2862AAFE974006415EE /* AppDelegate.swift */; };
 		49EDC2892AAFE974006415EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EDC2882AAFE974006415EE /* SceneDelegate.swift */; };
 		49EDC28B2AAFE974006415EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EDC28A2AAFE974006415EE /* ViewController.swift */; };
@@ -43,8 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4965811C2AB66F66000BBBD9 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		4965811E2AB6702B000BBBD9 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		496581242AB75181000BBBD9 /* DataFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetching.swift; sourceTree = "<group>"; };
 		49EDC2832AAFE974006415EE /* NYCSchools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSchools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EDC2862AAFE974006415EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49EDC2882AAFE974006415EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,8 +123,7 @@
 				49EDC2B82AAFEA08006415EE /* DataSession.swift */,
 				49EDC2BA2AAFF710006415EE /* Service.swift */,
 				49EDC2BC2AAFFF61006415EE /* SATScoresViewController.swift */,
-				4965811C2AB66F66000BBBD9 /* Protocols.swift */,
-				4965811E2AB6702B000BBBD9 /* Endpoints.swift */,
+				496581242AB75181000BBBD9 /* DataFetching.swift */,
 			);
 			path = NYCSchools;
 			sourceTree = "<group>";
@@ -282,10 +279,9 @@
 				49EDC28B2AAFE974006415EE /* ViewController.swift in Sources */,
 				49EDC2B72AAFE9F3006415EE /* DataModel.swift in Sources */,
 				49EDC2872AAFE974006415EE /* AppDelegate.swift in Sources */,
-				4965811D2AB66F66000BBBD9 /* Protocols.swift in Sources */,
-				4965811F2AB6702B000BBBD9 /* Endpoints.swift in Sources */,
 				49EDC2B92AAFEA08006415EE /* DataSession.swift in Sources */,
 				49EDC2892AAFE974006415EE /* SceneDelegate.swift in Sources */,
+				496581252AB75181000BBBD9 /* DataFetching.swift in Sources */,
 				49EDC2BD2AAFFF61006415EE /* SATScoresViewController.swift in Sources */,
 				49FF4CE72AB0EA29008AFAA1 /* SATScoresCellViewController.swift in Sources */,
 				49EDC2BB2AAFF710006415EE /* Service.swift in Sources */,

@@ -9,5 +9,5 @@ import Foundation
 
 // Defines a protocol for any service that fetches data
 protocol DataFetching {
-    func fetchData<T: Decodable>(from urlString: String) async throws -> T
+    func fetchData(from urlString: String) async
 }
